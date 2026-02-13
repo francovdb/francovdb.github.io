@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anastasia and Franco's Wedding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Lucida Handwriting, sans-serif;
+            text-align: center;
+            background-color: #beabeb;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 48px;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .button {
+            background-color: #c9a227;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Wedding of</h1>
+    <h1>Anastasia Meyer and Franco van den Berg</h1>
+    <p>We’re Getting Married!</p>
+   
+    <div class="section">
+        <h2>📅 Date</h2>
+        <p>27 June 2026</p>
+    </div>
+
+    <section>
+    <h2>Countdown to Our Wedding</h2>
+    <div id="countdown" style="font-size: 36px; font-weight: bold; margin: 20px 0;"></div>
+
+        <script>
+    // Set your wedding date here (YYYY, M-1, D, H, M, S)
+    const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
+
+    const countdownElement = document.getElementById("countdown");
+
+    // Update the countdown every second
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            countdownElement.innerHTML = "We’re Married! 🎉";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+</script>
+        
+</section>
+    
+    <div class="section">
+        <h2>📍 Venue</h2>
+        <p>Galagos Country Estate</p>
+
+        <div style="max-width:800px; margin:30px auto;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1562.658084954692!2d28.49629598247192!3d-25.803017346275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95609d388e8a7d%3A0x9c4436f7b93cd5f2!2sGalagos%20Country%20Estate!5e1!3m2!1sen!2sza!4v1770979979294!5m2!1sen!2sza""
+            width="75%" 
+            height="400" 
+            style="border:0; border-radius:15px;"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+    </div>
+    </div>
+
+    <section>
+  <h2>Gallery</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+    <img src="images/BG.jpg" alt="BG" style="width:450px; border-radius:10px;">
+    <img src="images/asle.jpg" alt="Asle" style="width:250px; border-radius:10px;">
+    <img src="images/daxter.jpg" alt="Daxter" style="width:450px; border-radius:10px;">
+  </div>
+</section>
+
+    <div class="section">
+        <h2>📅 Dress Code</h2>
+        <p>Black Formal</p>
+    </div>
+
+    <div class="section">
+        <h2>RSVP</h2>
+        <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLScDfoeg7HnxoKW8PpckxPUS40gF7_eKd_wEa6UqbAA6Foll2Q/viewform?usp=publish-editor" target="_blank">
+            RSVP Here
+        </a>
+    </div>
+
+</body>
+</html>
