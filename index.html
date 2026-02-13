@@ -30,12 +30,44 @@
     <h1>Welcome to the Wedding of</h1>
     <h1>Anastasia Meyer and Franco van den Berg</h1>
     <p>We’re Getting Married!</p>
-
+   
     <div class="section">
         <h2>📅 Date</h2>
         <p>27 June 2026</p>
     </div>
 
+    <section>
+    <h2>Countdown to Our Wedding</h2>
+    <div id="countdown" style="font-size: 36px; font-weight: bold; margin: 20px 0;"></div>
+
+        <script>
+    // Set your wedding date here (YYYY, M-1, D, H, M, S)
+    const weddingDate = new Date("June 27, 2026 14:00:00").getTime();
+
+    const countdownElement = document.getElementById("countdown");
+
+    // Update the countdown every second
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            countdownElement.innerHTML = "We’re Married! 🎉";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+</script>
+        
+</section>
+    
     <div class="section">
         <h2>📍 Venue</h2>
         <p>Galagos Country Estate</p>
